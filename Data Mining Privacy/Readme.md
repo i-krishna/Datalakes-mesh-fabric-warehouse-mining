@@ -31,6 +31,7 @@ Da Bormida, M. (2021). The Big Data World: Benefits, Threats and Ethical Challen
 
 IEEE. (n.d.). Ethical issues related to data privacy and security: Why we must balance ethical and legal requirements in the connected world. IEEE Digital Privacy https://digitalprivacy.ieee.org/publications/topics/ethical-issues-related-to-data-privacy-and-security-why-we-must-balance-ethical-and-legal-requirements-in-the-connected-world/
 
+<img width="890" height="210" alt="image" src="https://github.com/user-attachments/assets/e23ec175-3331-448b-90e2-9c3aee3aaff9" />
 
 
 # Ethical Data Mining Challenges & Solutions in the age of LLMs & AI Agents
