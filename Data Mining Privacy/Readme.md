@@ -1,3 +1,8 @@
+# Ethics & Bias across 6 phases of CRISP-DM 2.0
+Sept 7, 2025 by Krishna Damarla
+
+[Link to Report](https://github.com/i-krishna/Datawarehouse-Datamining-OLAP/blob/master/Data%20Mining%20Privacy/CRISP-DM%20and%20Laws%20of%20Data%20Mining%20Review.pdf )
+
 # AI & ML: Legal Requirements and Global Variations
 Aug 27, 2025 by Krishna Damarla
 
