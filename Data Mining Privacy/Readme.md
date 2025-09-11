@@ -22,7 +22,11 @@ Sept 7, 2025 by Krishna Damarla
 
 [Link to Report](https://github.com/i-krishna/Datawarehouse-Datamining-OLAP/blob/master/Data%20Mining%20Privacy/CRISP-DM%20and%20Laws%20of%20Data%20Mining%20Review.pdf )
 
-https://securing.ai/ai-security/explainable-ai-frameworks/ 
+Enforece explanability of decisin taken by AI or ML by integrating explainable ai frameworks such as IBM's Ax-360 or others mentioned here - https://securing.ai/ai-security/explainable-ai-frameworks/ 
+
+Build your AI Agent or LLM in a way that it is self explanatory using tools like IBM’s AI Explainability 360 or others from this of Securing AI - https://securing.ai/ai-security/explainable-ai-frameworks/
+
+Adding explainable AI frameworks helps everyone see how models work. For example, explainable AI tool could explain why the model flagged a loan application. Such a reasoning built trusts and confidenceo and also meets legal requirements such as GDPR. Moreover, it becomes easier for users to ask questions and get trustable answers.
 
 # AI & ML: Legal Requirements and Global Variations
 Aug 27, 2025 by Krishna Damarla
