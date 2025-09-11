@@ -1,3 +1,12 @@
+# Ethics & Bias across 6 phases of CRISP-DM 2.0
+Sept 7, 2025 by Krishna Damarla
+
+Build your AI Agent or LLM by integrating explainable AI (XAI) frameworks like IBM’s AI Explainability 360 [AIX360](https://github.com/Trusted-AI/AIX360) or others from this [list](https://securing.ai/ai-security/explainable-ai-frameworks/) of Securing AI. 
+
+Adding explainable AI frameworks helps everyone see how models work. For example, explainable AI framework could explain why the model flagged a loan application. Such a reasoning built trusts, confidence in decisions and also meets legal requirements such as GDPR. It becomes easier for users to ask questions and get trustable answers.
+
+[Link to Report](https://github.com/i-krishna/Datawarehouse-Datamining-OLAP/blob/master/Data%20Mining%20Privacy/CRISP-DM%20and%20Laws%20of%20Data%20Mining%20Review.pdf )
+
 # A Simple Take on Cybersecurity
 by Krishna Damarla, 10-Sept-2025 
 
@@ -16,15 +25,6 @@ PoLP is more than policy. It is respect in action, respect for privacy, and resp
 ASIS International. (2008). Can data mining and privacy coexist? Security Management. https://www.asisonline.org/security-management-magazine/articles/2008/11/can-data-mining-and-privacy-coexist/
 
 Newton, E. (2023). Top 5 challenges in ethical data mining we need to overcome. Datafloq. https://datafloq.com/read/top-5-challenges-ethical-data-mining-need-overcome/ 
-
-# Ethics & Bias across 6 phases of CRISP-DM 2.0
-Sept 7, 2025 by Krishna Damarla
-
-Build your AI Agent or LLM by integrating explainable AI (XAI) frameworks like IBM’s AI Explainability 360 [AIX360](https://github.com/Trusted-AI/AIX360) or others from this [list](https://securing.ai/ai-security/explainable-ai-frameworks/) of Securing AI. 
-
-Adding explainable AI frameworks helps everyone see how models work. For example, explainable AI framework could explain why the model flagged a loan application. Such a reasoning built trusts, confidence in decisions and also meets legal requirements such as GDPR. It becomes easier for users to ask questions and get trustable answers.
-
-[Link to Report](https://github.com/i-krishna/Datawarehouse-Datamining-OLAP/blob/master/Data%20Mining%20Privacy/CRISP-DM%20and%20Laws%20of%20Data%20Mining%20Review.pdf )
 
 # AI & ML: Legal Requirements and Global Variations
 Aug 27, 2025 by Krishna Damarla
