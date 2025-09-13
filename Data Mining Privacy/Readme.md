@@ -2,7 +2,7 @@
 
 - [binary split](https://github.com/i-krishna/Datawarehouse-Datamining-OLAP/blob/master/Data%20Mining%20Privacy/Confusion%20matrix%20binary%20classification.png) - train, test - [Spam-email-filter binary classification code](https://github.com/i-krishna/Business-Analytics/blob/main/Data-Science/Python/spam-email-filter.py) 
 
-- [Multi split code](https://github.com/i-krishna/Business-Analytics/blob/main/Data-Science/Python/train_llm.py) - train, validate after each layer / epoch or at end of training, test
+- [Multi split code](https://github.com/i-krishna/Business-Analytics/blob/main/Data-Science/Python/train_llm.py) - train, validate after each layer / epoch, test
 
 # Ethics & Bias across 6 phases of CRISP-DM 2.0
 Sept 7, 2025 by Krishna Damarla
