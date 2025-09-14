@@ -1,22 +1,3 @@
-# Splitting Datasets
-
-- [binary split](https://github.com/i-krishna/Datawarehouse-Datamining-OLAP/blob/master/Data%20Mining%20Privacy/Confusion%20matrix%20binary%20classification.png) - train, test - [Spam-email-filter binary classification code](https://github.com/i-krishna/Business-Analytics/blob/main/Data-Science/Python/spam-email-filter.py) 
-
-- [Multi split code](https://github.com/i-krishna/Business-Analytics/blob/main/Data-Science/Python/train_llm.py) - train, validate after each layer / epoch, test
-
-https://developers.google.com/machine-learning/crash-course/classification/accuracy-precision-recall
-```
-Precision = TP / (TP + FP)
-Recall = TP / (TP + FN)
-Accuracy = (TP + TN) / (TP + TN + FP + FN)
-
-Where,
-TP - True +ve
-FP - False +ve
-FP - False +ve
-FN - False -ve
-```
-
 # Ethics & Bias across 6 phases of CRISP-DM 2.0
 Sept 7, 2025 by Krishna Damarla
 
@@ -49,6 +30,25 @@ SHAP (SHapley Additive exPlanations) values show how each feature contributed to
 ```
 
 [Link to Report](https://github.com/i-krishna/Datawarehouse-Datamining-OLAP/blob/master/Data%20Mining%20Privacy/CRISP-DM%20and%20Laws%20of%20Data%20Mining%20Review.pdf )
+
+# Splitting Datasets
+
+- [binary split](https://github.com/i-krishna/Datawarehouse-Datamining-OLAP/blob/master/Data%20Mining%20Privacy/Confusion%20matrix%20binary%20classification.png) - train, test - [Spam-email-filter binary classification code](https://github.com/i-krishna/Business-Analytics/blob/main/Data-Science/Python/spam-email-filter.py) 
+
+- [Multi split code](https://github.com/i-krishna/Business-Analytics/blob/main/Data-Science/Python/train_llm.py) - train, validate after each layer / epoch, test
+
+https://developers.google.com/machine-learning/crash-course/classification/accuracy-precision-recall
+```
+Precision = TP / (TP + FP)
+Recall = TP / (TP + FN)
+Accuracy = (TP + TN) / (TP + TN + FP + FN)
+
+Where,
+TP - True +ve
+FP - False +ve
+FP - False +ve
+FN - False -ve
+```
 
 # A Simple Take on Cybersecurity
 by Krishna Damarla, 10-Sept-2025 
