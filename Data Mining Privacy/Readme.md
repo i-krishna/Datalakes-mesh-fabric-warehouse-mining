@@ -9,7 +9,7 @@ https://developers.google.com/machine-learning/crash-course/classification/accur
 # Ethics & Bias across 6 phases of CRISP-DM 2.0
 Sept 7, 2025 by Krishna Damarla
 
-Balancing skewed data is a critical step in machine learning to prevent models from becoming biased toward the majority class. For classification tasks, this is called handling class imbalance. For regression, it addresses uneven distributions in the target variable. 
+[Balancing skewed data](https://github.com/i-krishna/Business-Analytics/blob/main/Data-Science/Python/balance-skewed-data.py) is a critical step in machine learning to prevent models from becoming biased toward the majority class. For classification tasks, this is called handling class imbalance. For regression, it addresses uneven distributions in the target variable. 
 
 To handle bias further, build your AI Agent or LLM by integrating explainable AI (XAI) frameworks like IBM’s AI Explainability 360 [AIX360](https://github.com/Trusted-AI/AIX360) or others from this [list](https://securing.ai/ai-security/explainable-ai-frameworks/) of Securing AI. 
 
