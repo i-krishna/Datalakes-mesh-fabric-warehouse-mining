@@ -16,9 +16,28 @@ Sept 7, 2025 by Krishna Damarla
 
 To handle bias further, build your AI Agent or LLM by integrating explainable AI (XAI) frameworks like IBM’s AI Explainability 360 [AIX360](https://github.com/Trusted-AI/AIX360) or others from this [list](https://securing.ai/ai-security/explainable-ai-frameworks/) of Securing AI. 
 
-Adding explainable AI frameworks helps everyone see how models work. For example, explainable AI framework could explain why the model flagged a [loan application](https://github.com/Trusted-AI/AIX360/blob/master/examples/tutorials/HELOC.ipynb). Such a reasoning built trusts, confidence in decisions and also meets legal requirements such as GDPR. 
+Adding explainable AI frameworks helps everyone see how models work. For example, explainable AI framework could explain why the model flagged a [loan application](https://github.com/Trusted-AI/AIX360/blob/master/examples/tutorials/HELOC.ipynb). Such a reasoning built trusts, confidence in decisions and also meets legal requirements such as GDPR. Such an XAI integration into models makes the model trusthworthy for users to ask questions and get trusted answers.
 
-Such an XAI integration into models makes the model trusthworthy for users to ask questions and get trusted answers.
+XAI goes beyond basic interpretability by providing clear, understandable explanations for complex models like deep neural networks and ensemble methods. While traditional interpretability works well for simple prediction models (like decision trees or linear regression), XAI uses advanced techniques (such as SHAP, LIME, counterfactuals, and visualizations) to explain predictions from “black box” models, making AI decisions transparent and trustworthy for users and stakeholders.
+
+Basicc interpretability in prediction models:
+
+```
+Decision Trees:
+You can trace the path from root to leaf to see exactly how a prediction was made (e.g., “If age > 30 and income > $50K, then approve loan”).
+
+Linear Regression:
+The coefficients show how each feature affects the prediction (e.g., “Each extra year of education increases salary by $2,000”).
+
+Logistic Regression:
+You can see the odds ratio for each variable, explaining how it influences the probability of an outcome.
+
+Feature Importance in Random Forests:
+The model ranks features by how much they contribute to predictions, helping you understand which factors matter most.
+
+SHAP Values:
+SHAP (SHapley Additive exPlanations) values show how each feature contributed to a specific prediction for an individual data point.
+```
 
 [Link to Report](https://github.com/i-krishna/Datawarehouse-Datamining-OLAP/blob/master/Data%20Mining%20Privacy/CRISP-DM%20and%20Laws%20of%20Data%20Mining%20Review.pdf )
 
