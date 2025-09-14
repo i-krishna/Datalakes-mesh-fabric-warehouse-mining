@@ -11,6 +11,9 @@ Sept 7, 2025 by Krishna Damarla
 
 [Balancing skewed data](https://github.com/i-krishna/Business-Analytics/blob/main/Data-Science/Python/balance-skewed-data.py) is a critical step in machine learning to prevent models from becoming biased toward the majority class. For classification tasks, this is called handling class imbalance. For regression, it addresses uneven distributions in the target variable. 
 
+- Oversampling is a technique that increases the number of instances in the minority class to match the number of instances in the majority class. This creates a more balanced training dataset, preventing the model from ignoring the minority class.
+- Undersampling is a technique that reduces the number of instances in the majority class to balance the class distribution. 
+
 To handle bias further, build your AI Agent or LLM by integrating explainable AI (XAI) frameworks like IBM’s AI Explainability 360 [AIX360](https://github.com/Trusted-AI/AIX360) or others from this [list](https://securing.ai/ai-security/explainable-ai-frameworks/) of Securing AI. 
 
 Adding explainable AI frameworks helps everyone see how models work. For example, explainable AI framework could explain why the model flagged a [loan application](https://github.com/Trusted-AI/AIX360/blob/master/examples/tutorials/HELOC.ipynb). Such a reasoning built trusts, confidence in decisions and also meets legal requirements such as GDPR. 
