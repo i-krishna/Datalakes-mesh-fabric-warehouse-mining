@@ -3,6 +3,12 @@
 
 <img width="405" height="448" alt="image" src="https://github.com/user-attachments/assets/46d37cf0-d547-4004-9916-979509bb82d0" />
 
+Example: A retailer like Target has three teams all working with the same silver.payments table:
+
+The data engineering team uses Spark on Databricks to run nightly ETL jobs
+The finance team uses Snowflake to run ad-hoc revenue queries
+The data science team uses Trino to build ML features
+
 ## In the Hive Metastore world:
 Spark owns a Hive Metastore. The finance team copies data nightly into Snowflake's internal storage. The data science team runs a separate Hive Metastore for Trino. Three copies of the same data, three schemas that drift apart, three access control lists that contradict each other. When the data engineering team adds a new column at 2 AM, Snowflake doesn't know until someone manually re-exports the data — which takes hours.
 
