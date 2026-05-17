@@ -17,6 +17,51 @@ All three teams point their engines at one Polaris catalog (or Unity Catalog or 
 
 <img width="1440" height="950" alt="image" src="https://github.com/user-attachments/assets/a2327834-0e98-45e1-a577-accc90fe232c" />
 
+# Partitioning vs Dekta lake's Clustering vs Icebarg's v3 clustering
+
+<img width="636" height="481" alt="image" src="https://github.com/user-attachments/assets/194dea48-3e44-4ad1-a59d-9d9c80dd1b9d" />
+
+```
+-- Old world: one rigid choice made at creation
+CREATE TABLE orders
+PARTITIONED BY (date)   -- locked forever
+STORED AS PARQUET;
+
+-- Consequences:
+-- Query on date → great (partition pruning works)
+-- Query on region → terrible (full scan, all partitions)
+-- Query on customer_id → terrible (same problem)
+-- Want to change partition column → full table rewrite
+```
+```
+-- Delat lake: Z-order maps multi-dimensional data to 1D
+so similar values on ALL cluster columns
+end up in the same files.
+
+region=APAC, category=Electronics → Z-value: 0010110
+region=APAC, category=Books       → Z-value: 0010101
+region=EMEA, category=Electronics → Z-value: 1010110
+
+Files are sorted by Z-value, so APAC rows
+cluster together regardless of date.
+```
+
+```
+Old Delta approach:
+OPTIMIZE table ZORDER BY (region, category)
+→ one-time rewrite, no ongoing awareness
+→ new data written without Z-ordering
+→ gradually degrades as unoptimized files accumulate
+→ must manually re-run OPTIMIZE regularly
+
+Liquid clustering:
+ALTER TABLE ... CLUSTER BY (region, category)
+→ table "knows" its clustering columns permanently
+→ new writes try to respect clustering automatically
+→ background OPTIMIZE incrementally maintains it
+→ can change clustering columns without full rewrite
+→ "liquid" because it adapts as data and queries evolve
+```
 
 # Data compute
 
