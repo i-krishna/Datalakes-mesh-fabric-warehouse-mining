@@ -3,6 +3,12 @@
 
 <img width="405" height="448" alt="image" src="https://github.com/user-attachments/assets/46d37cf0-d547-4004-9916-979509bb82d0" />
 
+## In the Hive Metastore world:
+Spark owns a Hive Metastore. The finance team copies data nightly into Snowflake's internal storage. The data science team runs a separate Hive Metastore for Trino. Three copies of the same data, three schemas that drift apart, three access control lists that contradict each other. When the data engineering team adds a new column at 2 AM, Snowflake doesn't know until someone manually re-exports the data — which takes hours.
+
+## In the Iceberg REST Catalog world:
+All three teams point their engines at one Polaris catalog over HTTPS. Polaris says silver.payments lives at s3://data/silver/payments/metadata/v00042.json. When Spark commits a new snapshot at 2 AM, the metadata pointer atomically updates to v00043.json. At 2:01 AM, when the finance analyst runs a Snowflake query, it calls the same Polaris REST endpoint, gets v00043.json, and reads the same Parquet files Spark just wrote. No copy. No export. No delay. No schema drift.
+One table. One truth. Three different engines reading it simultaneously.
 
 # Data compute
 
