@@ -16,6 +16,9 @@ Spark owns a Hive Metastore. The finance team copies data nightly into Snowflake
 All three teams point their engines at one Polaris catalog (or Unity Catalog or Glue Catalog) over HTTPS. Polaris says silver.payments lives at s3://data/silver/payments/metadata/v00042.json. When Spark commits a new snapshot at 2 AM, the metadata pointer atomically updates to v00043.json. At 2:01 AM, when the finance analyst runs a Snowflake query, it calls the same Polaris REST endpoint, gets v00043.json, and reads the same Parquet files Spark just wrote. No copy. No export. No delay. No schema drift.
 One table. One truth. Three different engines reading it simultaneously.
 
+<img width="1440" height="950" alt="image" src="https://github.com/user-attachments/assets/a2327834-0e98-45e1-a577-accc90fe232c" />
+
+
 # Data compute
 
 For data compute (Spark), the bottleneck isn't RAM — it's the network and disk:
