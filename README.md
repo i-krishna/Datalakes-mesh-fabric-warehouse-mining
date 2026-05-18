@@ -242,6 +242,110 @@ You can use code-first and data contracts. You can use database-first and data c
 
 The CFO's dashboard showed correct numbers. The post-mortem never happened. That's the goal.
 
+# Data Contracts vs Catalogs 
+
+Continuing from the EF Migrations story.
+We ended with a YAML file in Git called contracts/StudentLoans.yaml.
+That file is just a promise written down. This story is about what makes it real.
+
+An above COntract.YAML file in Git defines what StudentLoans contains, who owns it, and what must happen before anyone changes it. However, team need something to enforce that contract — because a YAML file in Git doesn't block bad queries or mask SSNs by itself. That second thing is a data catalog. Specifically, Unity Catalog (Databricks) or Polaris (Snowflake's open catalog).
+
+The Contract is the Promise. The Catalog is the Implementation of Promise. For example, 
+- Data contract (YAML in Git) = the law written in the books.
+"AnalyticsTeam may only read StudentId, PrincipalAmount, and InterestRate. SSNs must be masked. Data must be no older than 15 minutes."
+- Unity Catalog / Polaris = the sheriff enforcing that law.
+When AnalyticsTeam runs a query, the catalog checks: Is this role allowed? Which columns? Is the data stale? Mask the SSN. Block the rest.
+
+This Contract.yaml file lives in Git. It gets reviewed in pull requests. Both producer and consumer teams sign off on it — exactly like the EF migration story. But by itself it doesn't stop anyone from doing anything.
+
+- What Unity Catalog Does With It
+Once the contract is agreed on, someone registers the table in Unity Catalog and wires up the rules:
+```
+sql-- Register the table
+CREATE TABLE main.finance.StudentLoans (
+  StudentId      STRING,
+  PrincipalAmount DECIMAL(10,2),
+  InterestRate   DECIMAL(5,3)
+);
+
+-- Mark StudentId as PII (per the contract)
+ALTER TABLE main.finance.StudentLoans
+  MODIFY COLUMN StudentId
+  SET TAG governance.pii = 'true';
+
+-- Mask StudentId for anyone not on the allow list
+CREATE MASKING POLICY governance.pii_mask
+  AS (val STRING) RETURNS STRING ->
+    CASE
+      WHEN CURRENT_ROLE() IN ('COMPLIANCE_TEAM', 'LOAN_ORIGINATION_TEAM')
+        THEN val
+      ELSE '***-***-****'
+    END;
+
+ALTER TABLE main.finance.StudentLoans
+  MODIFY COLUMN StudentId
+  SET MASKING POLICY governance.pii_mask;
+
+-- Set freshness SLA as table property
+ALTER TABLE main.finance.StudentLoans
+  SET TBLPROPERTIES ('freshness_sla' = '15 minutes');
+```
+
+Now when AnalyticsTeam queries StudentLoans, Unity Catalog automatically:
+
+Returns ***-***-**** for StudentId — they never see the real value
+Checks the last refresh timestamp — if it's more than 15 minutes old, the catalog flags it as stale
+Logs every query to SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY for the audit trail
+
+The YAML contract became operational policy inside the catalog.
+
+**What Polaris Does Differently**
+Polaris (open-sourced by Snowflake, now Apache) does the same job but for Iceberg tables, via REST:
+```
+json
+POST /v1/namespaces/finance/tables
+{
+  "name": "StudentLoans",
+  "schema": {
+    "fields": [
+      {"name": "StudentId",       "type": "string",      "required": true},
+      {"name": "PrincipalAmount", "type": "decimal(10,2)","required": true},
+      {"name": "InterestRate",    "type": "decimal(5,3)", "required": true}
+    ]
+  },
+  "properties": {
+    "owner":          "LoanOriginationTeam",
+    "freshness_sla":  "15 minutes",
+    "pii_columns":    ["StudentId"]
+  }
+}
+```
+Polaris's headline feature is credential vending — instead of handing engines your master S3 credentials, Polaris issues short-lived tokens scoped only to the specific table being queried. AnalyticsTeam's Spark cluster gets a token that can only read s3://data/finance/StudentLoans/. Nothing else. The token expires in one hour. The contract still lives in Git. Polaris still enforces it. The mechanism is just different from Unity.
+
+<img width="442" height="405" alt="image" src="https://github.com/user-attachments/assets/c4359f40-8d07-4e9d-8402-72f47c008069" />
+
+```
+Data Contract (YAML in Git)
+  ← agreed on in a PR, reviewed like code
+  ← version-controlled, change-logged
+            │
+            ▼
+Catalog (Unity Catalog or Polaris)
+  ← registers the table, stores its metadata
+  ← enforces masking, row filters, freshness
+  ← logs every access for audit
+            │
+            ▼
+Consumer queries (Spark, Trino, Tableau, Snowflake)
+  ← blocked, masked, or filtered automatically
+  ← no manual enforcement needed
+```
+
+**Summary**
+Data contracts are the policy — written by humans, reviewed in Git, agreed on by teams.
+Unity Catalog and Polaris are the enforcement — they read the policy and make it impossible to violate.
+You need both. A contract without a catalog is just a document nobody checks. A catalog without a contract is just ad-hoc access control that nobody agreed to.
+
 # How Iceberg REST Catalog Replaces Fragmented Metastores (One Table, Three Engines)
 
 <img width="405" height="448" alt="image" src="https://github.com/user-attachments/assets/46d37cf0-d547-4004-9916-979509bb82d0" />
