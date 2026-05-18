@@ -80,7 +80,9 @@ CLUSTER BY (shipping_region, carrier_tier, shipment_date);
 
 OPTIMIZE gold.shipments;
 
-# Data compute
+# Data compute vs AI Compute
+
+See https://github.com/i-krishna/Business-Analytics/blob/main/Data-Science/Python/matrix_multiply_inverse.py#L2 for when to use Data compute vs AI Compute 
 
 For data compute (Spark), the bottleneck isn't RAM — it's the network and disk:
 
