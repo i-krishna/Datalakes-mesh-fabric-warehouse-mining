@@ -11,6 +11,8 @@ Each microservice owns its own database schema, defined in C# and evolved via EF
 
 [Project Implementation Reference](https://github.com/i-krishna/aspnetcore-efcore-db-webapi)
 
+# How Iceberg REST Catalog Replaces Fragmented Metastores (One Table, Three Engines)
+
 <img width="405" height="448" alt="image" src="https://github.com/user-attachments/assets/46d37cf0-d547-4004-9916-979509bb82d0" />
 
 Example: A retailer like Target has three teams all working with the same silver.payments table:
