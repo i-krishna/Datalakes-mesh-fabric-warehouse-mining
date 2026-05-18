@@ -41,7 +41,8 @@ There is no formal agreement between the two teams about what the schema looks l
 On Tuesday morning, A developer on LoanOriginationTeam gets a ticket: "Regulatory requirement — the CFPB now requires us to store APR separately from interest rate."
 They open their StudentLoan.cs model and add a field:
 ```
-csharppublic class StudentLoan
+c#
+public class StudentLoan
 {
     public int Id { get; set; }
     public string StudentId { get; set; }
