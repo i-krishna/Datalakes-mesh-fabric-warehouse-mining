@@ -29,7 +29,7 @@ All three teams point their engines at one Polaris catalog (or Unity Catalog or 
 
 <img width="1440" height="950" alt="image" src="https://github.com/user-attachments/assets/a2327834-0e98-45e1-a577-accc90fe232c" />
 
-# Partitioning vs Dekta lake's Clustering vs Icebarg's v3 clustering
+# Partitioning vs Delta lake's Clustering vs Iceberg's v3 clustering
 
 <img width="636" height="481" alt="image" src="https://github.com/user-attachments/assets/194dea48-3e44-4ad1-a59d-9d9c80dd1b9d" />
 
